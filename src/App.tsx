@@ -9,6 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' component={Root}>
+        <Route path='' />
         <Route path='about' component={About} />
         <Route path='/projects' component={Projects} />
         <Route path='/contact' component={Contact} />

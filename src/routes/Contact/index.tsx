@@ -6,10 +6,10 @@ export function Contact() {
       <Grid xs={10}>
         <Box marginBottom='2rem'>
           <Typography variant='h4'>
-            QQ
+            KOOK群
           </Typography>
           <Typography>
-            934321107
+            <a href='https://kook.top/8iuCok'>https://kook.top/8iuCok</a>
           </Typography>
         </Box>
         <Box>

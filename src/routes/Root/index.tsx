@@ -4,9 +4,9 @@ import { Box,Button,Grid,Typography } from "@suid/material"
 export function Root() {
   const navigate = useNavigate()
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box flexGrow={1}>
       <Grid container justifyContent='center'>
-        <Grid xs={24} sx={{ marginBottom: '2rem' }}>
+        <Grid xs={24} marginBottom='2rem'>
           <Typography variant='h1' textAlign='center'>
             冰点启航
           </Typography>
