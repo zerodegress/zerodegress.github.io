@@ -1,35 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import './App.less'
+import { Routes, Route } from '@solidjs/router'
+import Root from './routes/Root'
+import Projects from './routes/Projects'
+import About from './routes/About'
+import Contact from './routes/Contact'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <p>有没有一种可能，就是这个网站还没开始搞？</p>
-      <p>这个网站也许会建成，但还不是现在</p>
-    </div>
+    <Routes>
+      <Route path='/' component={Root}>
+        <Route path='about' component={About} />
+        <Route path='/projects' component={Projects} />
+        <Route path='/contact' component={Contact} />
+      </Route>
+    </Routes>
   )
 }
 
