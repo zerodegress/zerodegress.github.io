@@ -24,7 +24,7 @@ Cuda版本：系统安装为12.4
 PyTorch版本：自动安装的2.1.2+cu121
 顺便附一下`fastfetch`：
 
-![](./gradio-dot-issue/fastfetch.png)
+![](/blog-images/gradio-dot-issue/fastfetch.png)
 
 ## 起因
 
@@ -41,7 +41,7 @@ PyTorch版本：自动安装的2.1.2+cu121
 思考片刻后我打算放弃汉化，转而直接跑个图先。当我点击`Generate`按钮时，一点反应也没有。啊这，这不应该吧。
 
 于是我直接打开`f12`看看是不是有网络请求错误：
-![](./gradio-dot-issue/issue1.png)
+![](/blog-images/gradio-dot-issue/issue1.png)
 
 果不其然，有一堆网络请求错误！再仔细检查一下，这些网络请求错误导致了部分脚本没有正确加载，进一步造成gradio应用不能工作。
 
@@ -55,11 +55,11 @@ PyTorch版本：自动安装的2.1.2+cu121
 
 于是又暴力搜索了半个小时，锁定到了来自`gradio`模块的脚本`routes.py`的大概364行的位置：
 
-![](./gradio-dot-issue/issue2.png)
+![](/blog-images/gradio-dot-issue/issue2.png)
 
 哦，还有这里：
 
-![](./gradio-dot-issue/issue3.png)
+![](/blog-images/gradio-dot-issue/issue3.png)
 
 这下就看明白了：Gradio会自动将绝对路径中带‘.’的目录加入禁止访问的目录，导致Gradio应用运行在带‘.’的目录时就会出问题。
 
@@ -69,7 +69,7 @@ PyTorch版本：自动安装的2.1.2+cu121
 
 而且官方在我刚刚搜到的[issue](https://github.com/gradio-app/gradio/issues/5407)下的表态是：
 
-![](./gradio-dot-issue/issue4.png)
+![](/blog-images/gradio-dot-issue/issue4.png)
 
 简单来说，他们只在`4.x`版本进行修复，而sdwebui用的`3.x`没啥办法了。
 
