@@ -9,6 +9,11 @@ import sitemap from '@astrojs/sitemap'
 export default defineConfig({
   site: 'https://www.zerodegress.ink',
   integrations: [mdx(), sitemap(), solidjs()],
+  markdown: {
+    shikiConfig: {
+      theme: 'github-dark',
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },
