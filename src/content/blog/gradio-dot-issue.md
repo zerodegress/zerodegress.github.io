@@ -3,6 +3,7 @@ title: 'Gradio与‘.’的文件访问问题'
 description: '一个过于智障的Gradio问题'
 pubDate: '2024.6.22'
 heroImage: '/blog-placeholder-1.jpg'
+tags: ['gradio', 'ai', 'python', 'web']
 ---
 
 > 这半年我见过最智障的问题

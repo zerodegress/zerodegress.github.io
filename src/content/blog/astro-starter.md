@@ -3,6 +3,7 @@ title: 'Astro：起步'
 description: '从Astro起步，一步一脚印'
 pubDate: '2024.2.20'
 heroImage: '/blog-placeholder-1.jpg'
+tags: ['astro', 'web']
 ---
 
 [Astro](https://astro.build/)是一个用于生成文档、静态博客等内容驱动的静态网站生成工具。本站点就是使用Astro生成，并在GitHub Pages上进行发布。
