@@ -51,7 +51,7 @@
 }
 
 @layer components {
-  .blog-post-prose {
+  .blog-post .prose {
     @apply w-full;
     & > * {
       @apply mx-8 my-2;
