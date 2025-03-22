@@ -60,11 +60,19 @@
       @apply px-4 py-2 rounded-md;
     }
     & :not(.astro-code) code {
-      @apply bg-base-bg-400 px-2 py-0.5 mx-2 rounded-sm font-bold text-primary;
+      @apply bg-base-bg-400 px-2 py-1 mx-2 rounded-sm font-bold text-sky-900;
     }
 
     & blockquote {
       @apply bg-base-bg-300 border-l-4 p-2 pl-8 border-primary text-base-600;
+    }
+
+    & ul > li {
+      @apply list-disc ml-6 pl-2 leading-7;
+    }
+
+    & ol > li {
+      @apply list-decimal ml-6 pl-2 leading-7;
     }
   }
 }
