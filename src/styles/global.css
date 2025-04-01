@@ -1,78 +1,18 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: var(--color-green-700);
-  --color-primary-bg: var(--color-white);
-  --color-base: var(--color-base-800);
-  --color-base-0: var(--color-white);
-  --color-base-100: var(--color-gray-100);
-  --color-base-200: var(--color-gray-200);
-  --color-base-300: var(--color-gray-300);
-  --color-base-400: var(--color-gray-400);
-  --color-base-500: var(--color-gray-500);
-  --color-base-600: var(--color-gray-600);
-  --color-base-700: var(--color-gray-700);
-  --color-base-800: var(--color-gray-800);
-  --color-base-bg: var(--color-base-bg-0);
-  --color-base-bg-0: var(--color-white);
-  --color-base-bg-100: var(--color-gray-100);
-  --color-base-bg-200: var(--color-gray-200);
-  --color-base-bg-300: var(--color-gray-300);
-  --color-base-bg-400: var(--color-gray-400);
-  --color-base-bg-500: var(--color-gray-500);
-  --color-base-bg-600: var(--color-gray-600);
-  --color-base-bg-700: var(--color-gray-700);
-  --color-base-bg-800: var(--color-gray-800);
-  --color-success: var(--color-blue);
-  --color-warning: var(--color-yellow);
-  --color-error: var(--color-red);
+  --color-dark: #1a1a1a;
+  --color-dark-secondary: #2a2a2a;
+  --color-accent: #00ff88,
 }
 
-@layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    @apply font-bold;
-  }
-  h1 {
-    @apply text-6xl;
-  }
-  h2 {
-    @apply text-4xl;
-  }
-  h3 {
-    @apply text-2xl;
-  }
-  h4 {
-    @apply text-xl;
-  }
+/* 自定义字体和行高 */
+body {
+  @apply leading-relaxed;
+  font-family: theme('fontFamily.sans');
 }
 
-@layer components {
-  .blog-post .prose {
-    @apply w-full;
-    & > * {
-      @apply mx-8 my-2;
-    }
-    & .astro-code {
-      @apply px-4 py-2 rounded-md;
-    }
-    & :not(.astro-code) code {
-      @apply bg-base-bg-400 px-2 py-1 mx-2 rounded-sm font-bold text-sky-900;
-    }
-
-    & blockquote {
-      @apply bg-base-bg-300 border-l-4 p-2 pl-8 border-primary text-base-600;
-    }
-
-    & ul > li {
-      @apply list-disc ml-6 pl-2 leading-7;
-    }
-
-    & ol > li {
-      @apply list-decimal ml-6 pl-2 leading-7;
-    }
-  }
+/* 容器约束 */
+.container {
+  @apply max-w-5xl;
 }

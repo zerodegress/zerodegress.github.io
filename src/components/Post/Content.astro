@@ -1,0 +1,11 @@
+---
+const { content } = Astro.props;
+
+const Content = content;
+---
+
+<article class="prose prose-invert max-w-none">
+  <div class="space-y-6 text-gray-300">
+    <Content />
+  </div>
+</article>

@@ -1,0 +1,12 @@
+---
+import PostListItem from './PostListItem.astro'
+
+const { posts } = Astro.props
+---
+<ul class=''>
+  {
+    posts.map(post => (
+      <PostListItem {...post} />
+    ))
+  }
+</ul>
