@@ -28,6 +28,10 @@ jobs:
         run: 'deno install --allow-scripts'
       - name: Build step
         run: 'deno task build'
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist/'
 
   deploy:
     needs: build
@@ -36,13 +40,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # upload entire directory
-          path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
