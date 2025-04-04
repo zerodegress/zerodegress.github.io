@@ -1,12 +1,14 @@
 ---
 import PostListItem from './PostListItem.astro'
+import { getCollection } from 'astro:content'
+
+interface Props {
+  posts: ReturnType<typeof getCollection> extends Promise<infer T> ? T : never
+}
 
 const { posts } = Astro.props
 ---
-<ul class=''>
-  {
-    posts.map(post => (
-      <PostListItem {...post} />
-    ))
-  }
+
+<ul>
+  {posts.map(post => <PostListItem slug={post.slug} data={post.data} />)}
 </ul>

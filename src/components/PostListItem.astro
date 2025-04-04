@@ -1,19 +1,29 @@
 ---
-import FormattedDate from "./FormattedDate.astro";
+import FormattedDate from './FormattedDate.astro'
 
-const { slug, data } = Astro.props;
+interface Props {
+  slug: string
+  data: {
+    title: string
+    pubDate: Date
+    tags?: string[]
+  }
+}
+
+const { slug, data } = Astro.props
 ---
 
 <a href={`/blog/${slug}/`}>
-  <article class="bg-dark-secondary p-6 rounded-lg space-y-3 my-2">
-    <h2 class="text-xl font-semibold">{data.title}</h2>
-    <time class="text-gray-400 text-sm">{data.pubDate}</time>
-    <p class="text-gray-300">{}</p>
-    <div class="flex gap-2">
-      {data.tags.map(tag => (
-        <span class="px-3 py-1 bg-gray-800 rounded-full text-sm">{tag}</span>
-      ))}
-    </div>
+  <article class='bg-dark-secondary p-6 rounded-lg space-y-3 my-2'>
+    <h2 class='text-xl font-semibold'>{data.title}</h2>
     <FormattedDate date={data.pubDate} />
+    <p class='text-gray-300'>{}</p>
+    <div class='flex gap-2'>
+      {
+        (data.tags || []).map(tag => (
+          <span class='px-3 py-1 bg-gray-800 rounded-full text-sm'>{tag}</span>
+        ))
+      }
+    </div>
   </article>
 </a>
