@@ -1,10 +1,10 @@
 ---
-import Nav from '../../components/Nav.astro';
-import PostHeader from '../../components/Post/Header.astro';
-import PostContent from '../../components/Post/Content.astro';
-import PostTags from '../../components/Post/Tags.astro';
-import BaseHead from '../../components/BaseHead.astro';
-import { type CollectionEntry, getCollection } from 'astro:content';
+import Nav from '../../components/Nav.astro'
+import PostHeader from '../../components/Post/Header.astro'
+import PostContent from '../../components/Post/Content.astro'
+import PostTags from '../../components/Post/Tags.astro'
+import BaseHead from '../../components/BaseHead.astro'
+import { type CollectionEntry, getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
@@ -16,28 +16,25 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'blog'>
 
 const post = Astro.props
-const { Content } = await post.render()
 ---
 
-<html lang="zh-CN" class="dark">
-<head>
-  <BaseHead title='冰窖' description='冰窖' />
-</head>
+<html lang='zh-CN' class='dark'>
+  <head>
+    <BaseHead title='冰窖' description='冰窖' />
+  </head>
 
-<body class="bg-dark text-gray-100">
-  <Nav title="冰窖" />
-  
-  <main class="container mx-auto px-4 md:px-8 py-12">
-    <div class="max-w-3xl mx-auto">
-      <PostHeader 
-        title={post.data.title} 
-        date={post.data.pubDate} 
-      />
-      
-      <PostContent content={Content} />
-      
-      <PostTags tags={post.data.tags} />
-    </div>
-  </main>
-</body>
+  <body class='bg-dark text-gray-100'>
+    <Nav title='冰窖' />
+
+    <main class='container mx-auto px-4 md:px-8 py-12'>
+      <div class='max-w-3xl mx-auto'>
+        <PostHeader title={post.data.title} date={post.data.pubDate} />
+
+        <PostContent post={post} />
+        <!-- <Content /> -->
+
+        <PostTags tags={post.data.tags} />
+      </div>
+    </main>
+  </body>
 </html>

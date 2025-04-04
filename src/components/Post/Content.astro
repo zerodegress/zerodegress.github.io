@@ -1,11 +1,20 @@
 ---
-const { content } = Astro.props;
+import type { getCollection } from 'astro:content'
 
-const Content = content;
+interface Props {
+  post: ReturnType<typeof getCollection> extends Promise<infer T>
+    ? T extends (infer A)[]
+      ? A
+      : never
+    : never
+}
+const { post } = Astro.props
+
+const { Content: Co } = await post.render()
 ---
 
-<article class="prose prose-invert max-w-none">
-  <div class="space-y-6 text-gray-300">
-    <Content />
+<article class='prose prose-invert max-w-none'>
+  <div class='space-y-6 text-gray-300'>
+    <Co />
   </div>
 </article>
